@@ -24,13 +24,13 @@ const DIR_LIST = [
 
 
 const getNav = () => {
-  return DIR_LIST.map(el => ({ text: el.title, link: `/${el.dirname}/${el.children[0]}.md` }));
+  return DIR_LIST.map(el => ({ text: el.title, link: `/${el.dirname}/${el.children[0]}` }));
 }
 
 const getSideBar = () => {
   const sidebar = {};
   DIR_LIST.forEach(el => {
-    sidebar[`/${el.dirname}/`] = [{title: el.title, children: el.children}];
+    sidebar[`/${el.dirname}/`] = [{title: el.title, collapsable: false, children: el.children}];
   });
   return sidebar;
 }
@@ -54,7 +54,7 @@ module.exports = {
     nav: getNav(),
     sidebar: getSideBar(),
     lastUpdated: '上次更新',
-    repo: 'https://github.com/lanluohaisi/lanluohaisi.github.io/vpblog',
+    repo: 'https://github.com/lanluohaisi/vpblog',
     editLinks: true,
     docsDir: 'docs',
     editLinkText: '在 GitHub 上编辑此页',
